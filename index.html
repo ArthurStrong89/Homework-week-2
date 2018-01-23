@@ -1,0 +1,365 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grids</title>
+    <link rel="stylesheet" href="style.css">
+</head>  
+<style>
+    html, body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial;
+        color: #ff0000;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body > main > section {
+        max-width: 75rem;
+        margin: 0 auto;
+    }
+
+    body > header {
+        padding: 1rem;
+    }
+
+        body > header > h1 {
+            color: orangered;
+            padding: 1rem;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+    main > section {
+        clear: both;
+    }
+
+    section:nth-child(2) {
+        padding-top: 7rem;
+    }
+
+
+
+
+    /* --- common styling ---*/
+    main > section > h2 {
+        background: rgb(255, 216, 0);
+        padding: 5px 1rem;
+        color: darkred;
+        text-align: center;
+        margin: 1rem;
+        padding: 0.6rem;
+    }
+
+    .grid-item {
+        border: 3px solid red;
+        padding: 0 1rem 1rem 1rem;
+        overflow: hidden;
+    }
+
+        .grid-item > h3 {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: normal;
+            text-align: center;
+            background: rgb(182, 255, 0);
+            padding: 8px 1rem;
+            margin: 0 -1rem 0 -1rem;
+            border-bottom: 1px solid #999;
+            position: relative;
+            z-index: 2;
+        }
+
+        .grid-item > img {
+            display: block;
+            width: 100%;
+            background: #fff;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grid-item > p {
+            font-size: 0.9rem;
+            margin: 1rem 0 0;
+            position: relative;
+            z-index: 2;
+        }
+
+
+    /* --- CSS For floats ---*/
+    #grid-floats {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+
+        #grid-floats .grid-item {
+            float: left;
+            width: calc(50% - 2rem);
+            margin: 0 1rem 1rem;
+        }
+
+
+
+    /*--- mobile only ---*/
+    @media screen and (max-width: 47.99999rem) {
+        #grid-floats .grid-item:first-child {
+            float: none;
+            width: 100%;
+        }
+
+        #grid-floats .grid-item:nth-child(2n) {
+            clear: both;
+        }
+    }
+
+    /*--- Tablet ---*/
+    @media screen and (min-width: 48rem) and (max-width: 59.99999rem) {
+        #grid-floats .grid-item {
+            float: left;
+            width: calc(33.3333% - 2rem);
+        }
+
+            #grid-floats .grid-item:first-child {
+                float: left;
+                width: calc(50% - 2rem);
+            }
+
+            #grid-floats .grid-item:nth-child(2) {
+                float: left;
+                width: calc(50% - 2rem);
+            }
+
+            #grid-floats .grid-item:nth-child(3n) {
+                clear: both;
+            }
+    }
+
+    /*--- Desktop ---*/
+    @media screen and (min-width: 60rem) {
+        #grid-floats .grid-item {
+            float: left;
+            width: calc(25% - 2rem);
+        }
+
+            #grid-floats .grid-item:first-child {
+                float: left;
+                width: calc(50% - 2rem);
+            }
+
+            #grid-floats .grid-item:nth-child(4n) {
+                clear: both;
+            }
+    }
+
+    /*--- Flexbox ---*/
+    #grid-flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        #grid-flex .grid-item:first-child {
+            width: 100%;
+        }
+
+        #grid-flex .grid-item {
+            width: calc(50% - 2rem);
+            margin: 1rem;
+        }
+
+    /*--- Tablet ---*/
+    @media screen and (min-width: 48rem) {
+        #grid-flex .grid-item {
+            width: calc(33.3333% - 2rem);
+        }
+
+            #grid-flex .grid-item:first-child {
+                width: calc(50% - 2rem);
+            }
+
+            #grid-flex .grid-item:nth-child(2) {
+                width: calc(50% - 2rem);
+            }
+    }
+
+    /*--- Desktop ---*/
+    @media screen and (min-width: 60rem) {
+        #grid-flex .grid-item {
+            width: calc(25% - 2rem);
+        }
+    }
+
+    [8:14 PM] 1rem=16px
+
+</style>
+<body>
+        <header>
+            <h1>Grids</h1>
+        </header>
+        <main>
+            <section>
+                <h2>Grid with floats</h2>
+                <ul id="grid-floats">
+                    <li class="grid-item">
+                        <h3>6 Eksenli Drone + Kamera</h3>
+                        <img src="images/drone1.png">
+                        <p>Oyuncakçı Eddy’nin dronu yeni başlayanlar için, altı ekseni var. 2.4Ghz kumadasıyla hareket ederek 50 metre yüksekliğe kadar çıkabilir. Uçuş süresi ise 6 dakika.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Mavic Pro Fly More Combo</h3>
+                        <img src="images/drone2.png">
+                         <p dir="rtl">طائرة مافيك: مايميز هذه الطائرة هو صغر حجمها، وهي معيار جديد في مجال الطائرات من دون طيار. طائرة المافيك مفيدة كثيراً في الحالات التي لايكون الطيران فيها سهلاً، وذلك بفضل التقنيات العديدة المدمجة فيها.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 4</h3>
+                        <img src="images/drone3.png">
+                        <p>De DJI Phantom 4 is een intelligente drone die onder meer automatisch obstakels vermijdt en 4K-beelden opneemt. Uiteraard is dit niet het enige waar de Phantom 4 indruk mee maakt. Wat dacht je van ActiveTrack, een sportmodus en een nog langere vliegduur.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 3 Standard</h3>
+                        <img src="images/drone4.png">
+                        <p>Met een bereik van 500 meter, een Full HD-camera die met 30 fps opneemt en een f/2.8-lens maakt u met de DJI Phantom 3 standard de mooiste opnames vanuit de lucht.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>YUNEEC Breeze 4K</h3>
+                        <img src="images/drone5.png">
+                        <p>De Breeze 4K van Yuneec is makkelijk te besturen, veilig en snel in staat opnames te delen. De drone wordt bestuurd met je iOS- of Android-apparaat en produceert indrukwekkende 4K-beelden.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>SKEYE Nano Drone</h3>
+                        <img src="images/drone6.png">
+                        <p>Met de Nano Drone kan iedereen het gevoel van vliegen met een drone ervaren. De zeer kleine drone van slechts vier centimeter breed is na uitpakken direct klaar om te vliegen.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Spreading Wings S900</h3>
+                        <img src="images/drone7.png">
+                        <p>Met prachtige luchtfoto's en -video's maak je indruk. De DJI Spreading Wings S900 is een lichtgewicht drone die met zijn draaggewicht van maximaal 8,2 kilogram voorziet in het maken van dergelijke beelden.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>Drone 6-AXIS + camera</h3>
+                        <img src="images/drone1.png">
+                        <p>De Eddy Toys Drone is een instap drone met 6 assen en laat zich besturen door de meegeleverde 2.4Ghz controller met een bereik tot 50m hoogte.Vliegduur is 6 minuten.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Mavic Pro Fly More Combo</h3>
+                        <img src="images/drone2.png">
+                        <p>Met de Mavic, die direct opvalt vanwege zijn kleine afmeting, zet DJI een nieuwe standaard op het gebied van drones. De Mavic is zeer behulpzaam tijdens de niet altijd even makkelijke vluchten, vooral dankzij de vele ingebouwde technieken.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 4</h3>
+                        <img src="images/drone3.png">
+                        <p>De DJI Phantom 4 is een intelligente drone die onder meer automatisch obstakels vermijdt en 4K-beelden opneemt. Uiteraard is dit niet het enige waar de Phantom 4 indruk mee maakt. Wat dacht je van ActiveTrack, een sportmodus en een nog langere vliegduur.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 3 Standard</h3>
+                        <img src="images/drone4.png">
+                        <p>Met een bereik van 500 meter, een Full HD-camera die met 30 fps opneemt en een f/2.8-lens maakt u met de DJI Phantom 3 standard de mooiste opnames vanuit de lucht.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>YUNEEC Breeze 4K</h3>
+                        <img src="images/drone5.png">
+                        <p>De Breeze 4K van Yuneec is makkelijk te besturen, veilig en snel in staat opnames te delen. De drone wordt bestuurd met je iOS- of Android-apparaat en produceert indrukwekkende 4K-beelden.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>SKEYE Nano Drone</h3>
+                        <img src="images/drone6.png">
+                        <p>Met de Nano Drone kan iedereen het gevoel van vliegen met een drone ervaren. De zeer kleine drone van slechts vier centimeter breed is na uitpakken direct klaar om te vliegen.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Spreading Wings S900</h3>
+                        <img src="images/drone7.png">
+                        <p>Met prachtige luchtfoto's en -video's maak je indruk. De DJI Spreading Wings S900 is een lichtgewicht drone die met zijn draaggewicht van maximaal 8,2 kilogram voorziet in het maken van dergelijke beelden.</p>
+                    </li>
+                </ul>
+                
+            </section>
+            <section>
+                <h2>Grid with flexbox</h2>
+                <ul id="grid-flex">
+                    <li class="grid-item">
+                        <h3>Drone 6-AXIS + camera</h3>
+                        <img src="images/drone1.png">
+                        <p>Oyuncakçı Eddy’nin dronu yeni başlayanlar için, altı ekseni var. 2.4Ghz kumadasıyla hareket ederek 50 metre yüksekliğe kadar çıkabilir. Uçuş süresi ise 6 dakika.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Mavic Pro Fly More Combo</h3>
+                        <img src="images/drone2.png">
+                         <p dir="rtl">طائرة مافيك: مايميز هذه الطائرة هو صغر حجمها، وهي معيار جديد في مجال الطائرات من دون طيار. طائرة المافيك مفيدة كثيراً في الحالات التي لايكون الطيران فيها سهلاً، وذلك بفضل التقنيات العديدة المدمجة فيها.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 4</h3>
+                        <img src="images/drone3.png">
+                        <p>De DJI Phantom 4 is een intelligente drone die onder meer automatisch obstakels vermijdt en 4K-beelden opneemt. Uiteraard is dit niet het enige waar de Phantom 4 indruk mee maakt. Wat dacht je van ActiveTrack, een sportmodus en een nog langere vliegduur.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 3 Standard</h3>
+                        <img src="images/drone4.png">
+                        <p>Met een bereik van 500 meter, een Full HD-camera die met 30 fps opneemt en een f/2.8-lens maakt u met de DJI Phantom 3 standard de mooiste opnames vanuit de lucht.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>YUNEEC Breeze 4K</h3>
+                        <img src="images/drone5.png">
+                        <p>De Breeze 4K van Yuneec is makkelijk te besturen, veilig en snel in staat opnames te delen. De drone wordt bestuurd met je iOS- of Android-apparaat en produceert indrukwekkende 4K-beelden.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>SKEYE Nano Drone</h3>
+                        <img src="images/drone6.png">
+                        <p>Met de Nano Drone kan iedereen het gevoel van vliegen met een drone ervaren. De zeer kleine drone van slechts vier centimeter breed is na uitpakken direct klaar om te vliegen.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Spreading Wings S900</h3>
+                        <img src="images/drone7.png">
+                        <p>Met prachtige luchtfoto's en -video's maak je indruk. De DJI Spreading Wings S900 is een lichtgewicht drone die met zijn draaggewicht van maximaal 8,2 kilogram voorziet in het maken van dergelijke beelden.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>Drone 6-AXIS + camera</h3>
+                        <img src="images/drone1.png">
+                        <p>De Eddy Toys Drone is een instap drone met 6 assen en laat zich besturen door de meegeleverde 2.4Ghz controller met een bereik tot 50m hoogte.Vliegduur is 6 minuten.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Mavic Pro Fly More Combo</h3>
+                        <img src="images/drone2.png">
+                        <p>Met de Mavic, die direct opvalt vanwege zijn kleine afmeting, zet DJI een nieuwe standaard op het gebied van drones. De Mavic is zeer behulpzaam tijdens de niet altijd even makkelijke vluchten, vooral dankzij de vele ingebouwde technieken.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 4</h3>
+                        <img src="images/drone3.png">
+                        <p>De DJI Phantom 4 is een intelligente drone die onder meer automatisch obstakels vermijdt en 4K-beelden opneemt. Uiteraard is dit niet het enige waar de Phantom 4 indruk mee maakt. Wat dacht je van ActiveTrack, een sportmodus en een nog langere vliegduur.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Phantom 3 Standard</h3>
+                        <img src="images/drone4.png">
+                        <p>Met een bereik van 500 meter, een Full HD-camera die met 30 fps opneemt en een f/2.8-lens maakt u met de DJI Phantom 3 standard de mooiste opnames vanuit de lucht.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>YUNEEC Breeze 4K</h3>
+                        <img src="images/drone5.png">
+                        <p>De Breeze 4K van Yuneec is makkelijk te besturen, veilig en snel in staat opnames te delen. De drone wordt bestuurd met je iOS- of Android-apparaat en produceert indrukwekkende 4K-beelden.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>SKEYE Nano Drone</h3>
+                        <img src="images/drone6.png">
+                        <p>Met de Nano Drone kan iedereen het gevoel van vliegen met een drone ervaren. De zeer kleine drone van slechts vier centimeter breed is na uitpakken direct klaar om te vliegen.</p>
+                    </li>
+                    <li class="grid-item">
+                        <h3>DJI Spreading Wings S900</h3>
+                        <img src="images/drone7.png">
+                        <p>Met prachtige luchtfoto's en -video's maak je indruk. De DJI Spreading Wings S900 is een lichtgewicht drone die met zijn draaggewicht van maximaal 8,2 kilogram voorziet in het maken van dergelijke beelden.</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </body>
+</html>
